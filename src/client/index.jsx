@@ -2,7 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import tweets from './tweets'
+import fonts from '@fortawesome/fontawesome-free'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHandPointLeft } from '@fortawesome/free-solid-svg-icons'
+
+import { faHeart } from '@fortawesome/free-solid-svg-icons'
+
+import { faArrowsAlt } from '@fortawesome/free-solid-svg-icons'
+
+import { faCloud } from '@fortawesome/free-solid-svg-icons'
+
+console.log(fonts)
 class User extends React.Component {
   render() {
     function dhm(ms){
@@ -22,7 +33,7 @@ class User extends React.Component {
         <h5>
           <img src={this.props.user.profile_image_url_https} style={{width: "7%"}}/>
           &nbsp;&nbsp;&nbsp;<a href={this.props.user.url}>{this.props.user.name}</a>
-          <span className="text-muted"> @{this.props.user.screen_name}</span>
+          <span className="text-muted"> @{this.props.user.screen_name} {element4}</span>
           &nbsp;&nbsp;
                   <span  style={{fontSize: "10px"}}>{newTime}</span>
 
@@ -55,7 +66,7 @@ class Likes extends React.Component {
   render () {
     return (
       <span>
-        <i className="material-icons md-18">thumb_up</i> {this.props.likes}
+        {element2} {this.props.likes}
       </span>
     )
   }
@@ -65,7 +76,7 @@ class Retweets extends React.Component {
   render() {
     return (
       <span>
-        <i className="material-icons md-18">double_arrow</i> {this.props.retweets}
+        {element3} {this.props.retweets}
       </span>
     )
   }
@@ -122,16 +133,36 @@ class App extends React.Component {
     })
 
     return (
-      <div>
-        <h1> <i class="fas fa-chevron-left"></i> @{this.props.tweets.tweets[0].user.screen_name}</h1>
+      <div className="row">
+        <div className="col-12 ml-4 mt-4 border">
+
+        <h1> {element1} @{this.props.tweets.tweets[0].user.screen_name} {element4}</h1>
+        <div className="row ml-5">
+        <div className="col-3" >
+            <p>Tweets</p>
+        </div>
+        <div className="col-3" >
+            <p>Tweets and Replies</p>
+        </div>
+        <div className="col-3" >
+            <p> Media</p>
+        </div>
+       <div className="col-3" >
+            <p> Likes</p>
+        </div>
+        </div>
         <ol>
         {tweetsList}
         </ol>
+        </div>
       </div>
     );
   }
 }
-
+const element1 = <FontAwesomeIcon icon={faHandPointLeft} />
+const element2 = <FontAwesomeIcon icon={faHeart} />
+const element3 = <FontAwesomeIcon icon = {faArrowsAlt} />
+const element4 = <FontAwesomeIcon icon = {faCloud} />
 const element = document.getElementById('app');
 //to use tweets within the app
 ReactDOM.render(<App tweets= {tweets} />, element );//

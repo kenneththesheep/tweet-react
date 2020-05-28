@@ -35,11 +35,15 @@ app.get('/react', (req, res) => {
     <html>
     <head>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+
     </head>
       <body>
         <div class =" container">
-        <h1>Tweeter</h1>
+            <div class =" row ml-4 text-center">
+                <div class="col-12">
+                    <h1>Imitation Tweeter</h1>
+                </div>
+            </div>
         <div id="app"></div>
         <script type="text/javascript" src="/main.js"></script>
         </div>
